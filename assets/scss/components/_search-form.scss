@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+
+.search-form {
+  position: relative;
+  min-width: 350px;
+
+  .form-control {
+    border-radius: 8px;
+    border: 0;
+  }
+
+  &--no-radius .form-control {
+    border-radius: 0;
+  }
+
+  &--shadow .form-control {
+    box-shadow: $shadow;
+  }
+
+  .search-form__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+}

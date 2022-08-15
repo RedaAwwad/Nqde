@@ -1,0 +1,24 @@
+@use '../abstracts/variables' as *;
+
+.dashboard {
+  &__wrapper {
+    display: flex;
+
+  }
+
+  &__content {
+    width: calc(100% - #{ $side_bar_width });
+
+    &-grid {
+      width: calc(100% - #{ $side_bar_width });
+    }
+  }
+
+  &__side-panel {
+    width: $side_bar_width;
+    height: calc(100vh - #{ $nav_height_lg });
+    overflow-y: auto;
+    max-width: 100%;
+    background-color: $dark-gray;
+  }
+}

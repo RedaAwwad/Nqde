@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+  padding: 0.5rem 2rem;
+
+  &-lg {
+    border-radius: 1rem;
+  }
+
+  &-primary {
+    border-color: $primary !important;
+    background-color: $primary !important;
+    color: $white !important;
+
+    &:hover {
+      border-color: $primary-light !important;
+      background-color: $primary-light !important;
+    }
+  }
+
+  &-outline-primary {
+    border-color: $primary-light !important;
+    background-color: transparent !important;
+    color: $black !important;
+
+    &:hover {
+      background-color: $primary-light !important;
+      color: $white !important;
+    }
+  }
+}

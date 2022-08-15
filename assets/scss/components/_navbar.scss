@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+
+.navbar {
+  background-color: $primary;
+  color: $white;
+
+  .navbar-brand {
+    &__container {
+      width: calc(#{ $side_bar_width } - 15px);
+      
+    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  .notification-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $red;
+  }
+
+  .user-dropdown-btn {
+    gap: 10px;
+    text-align: center;
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  .navbar-nav {
+    gap: 20px;
+
+    .line {
+      width: 1px;
+      height: 50px;
+      background-color: $white;
+    }
+  }
+}

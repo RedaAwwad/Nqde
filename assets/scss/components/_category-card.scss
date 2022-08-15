@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as *;
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  &__icon {
+    width: 7rem;
+    height: 6rem;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    border-radius: 0.94rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $shadow;
+    transition: background 300ms ease;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    color: $black;
+  }
+}

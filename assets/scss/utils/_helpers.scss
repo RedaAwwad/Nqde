@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.hover-primary:hover {
+  color: $primary !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.gap {
+  gap: 0.75rem;
+}
+
+.seperator {
+  height: 1px;
+  border: 0;
+  background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 14px 1px;
+  background-repeat: repeat-x;
+}
+
+.shadow {
+  box-shadow: $shadow !important;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
