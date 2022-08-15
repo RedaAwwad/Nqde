@@ -2,10 +2,20 @@
 
 .modal {
 
+  @media (min-width: 576px) {
+    &-dialog {
+        max-width: 600px;
+    }
+  }
+
   &-content {
     border: 0;
     border-radius: 0.75rem;
     background-color: $bg-light;
+  }
+
+  &-body {
+    min-height: 300px;
   }
 
   &-header {
@@ -28,6 +38,7 @@
     border: 0;
     border-radius: 0 0 0.75rem 0.75rem;
     background-color: $white;
+    box-shadow: $shadow;
 
     &>div {
       gap: 15px;

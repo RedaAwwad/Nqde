@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as *;
+
+input.form-control {
+  border-color: border;
+}
+
+.input-group {
+  &-text {
+    background-color: $white;
+    text-align: start;
+  }
+
+  .form-control {
+    text-align: right;
+
+    &[readonly],
+    &:disabled {
+      background-color: $white;
+    }
+  }
+}

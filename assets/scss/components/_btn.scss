@@ -3,6 +3,10 @@
 .btn {
   padding: 0.5rem 2rem;
 
+  &:not(.font-light) {
+    font-family: $tajawal-bold;
+  }
+
   &-lg {
     border-radius: 1rem;
   }
@@ -15,6 +19,17 @@
     &:hover {
       border-color: $primary-light !important;
       background-color: $primary-light !important;
+    }
+  }
+
+  &-primary-light {
+    border-color: $primary-light !important;
+    background-color: $primary-light !important;
+    color: $white !important;
+
+    &:hover {
+      border-color: $primary !important;
+      background-color: $primary !important;
     }
   }
 

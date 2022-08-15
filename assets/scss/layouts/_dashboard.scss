@@ -22,3 +22,10 @@
     background-color: $dark-gray;
   }
 }
+
+.col-2xl-2 {
+  @media (min-width: 1450px) {
+    flex: 0 0 16.66%;
+    max-width: 16.66%;
+  }
+}

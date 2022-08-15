@@ -1,54 +1,23 @@
-// orders data
-export const orders = [
+// categories data
+export const categories = [
   {
     id: 1,
-    title: 'بان كيك',
-    image: '/icons/icon-dessert.svg',
-    details: {
-      customer_name: ' اسم العميل',
-      bill_number: '#54622',
-      order_type: 'سفري',
-      table_number: 8,
-      net: 200,
-      discount: 0,
-      tax: 200,
-      total: 400
-    }
+    title: 'ساخن',
+    desc: '',
+    image: '/icons/icon-hot.svg',
+    slug: 'hot'
   },
   {
     id: 2,
-    title: 'فرنش توست',
+    title: 'حلويات',
+    desc: '',
     image: '/icons/icon-dessert.svg',
-    details: {
-      customer_name: ' اسم العميل',
-      bill_number: '#50022',
-      order_type: 'سفري',
-      table_number: 8,
-      net: 250,
-      discount: 0,
-      tax: 210,
-      total: 460
-    }
-  },
-  {
-    id: 3,
-    title: 'حلى عربي',
-    image: '/icons/icon-dessert.svg',
-    details: {
-      customer_name: ' اسم العميل',
-      bill_number: '#57722',
-      order_type: 'سفري',
-      table_number: 10,
-      net: 150,
-      discount: 0,
-      tax: 50,
-      total: 200
-    }
+    slug: 'dessert'
   }
 ]
 
 // additions data
-export const additions = [
+const additions = [
   {
     id: 1,
     name: 'بان كيك',
@@ -92,3 +61,56 @@ export const additions = [
     qty: 1
   },
 ]
+
+// orders data
+export const orders = [
+  {
+    id: 1,
+    title: 'بان كيك',
+    image: '/icons/icon-dessert.svg',
+    details: {
+      customer_name: ' اسم العميل',
+      bill_number: '#54622',
+      order_type: 'سفري',
+      table_number: 8,
+      net: 200,
+      discount: 0,
+      tax: 200,
+      total: 400
+    },
+    additions
+  },
+  {
+    id: 2,
+    title: 'فرنش توست',
+    image: '/icons/icon-dessert.svg',
+    details: {
+      customer_name: ' اسم العميل',
+      bill_number: '#50022',
+      order_type: 'سفري',
+      table_number: 8,
+      net: 250,
+      discount: 0,
+      tax: 210,
+      total: 460
+    },
+    additions
+  },
+  {
+    id: 3,
+    title: 'حلى عربي',
+    image: '/icons/icon-dessert.svg',
+    details: {
+      customer_name: ' اسم العميل',
+      bill_number: '#57722',
+      order_type: 'سفري',
+      table_number: 10,
+      net: 150,
+      discount: 0,
+      tax: 50,
+      total: 200
+    },
+    additions
+  }
+]
+
