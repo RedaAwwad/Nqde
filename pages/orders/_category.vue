@@ -1,6 +1,8 @@
 <template>
   <div class="d-flex">
-    <SidePanel>
+    <div @click="closeSidePanel" class="dashboard__side-panel__overlay" 
+    :class="{ 'show' : isSidePanel }"></div>
+    <SidePanel :class="{ 'show' : isSidePanel }">
       <div v-if="selectedOrder && selectedOrder.id" class="d-flex flex-column justify-content-between h-100">
         <div>
           <ul class="d-flex flex-column gap">
@@ -49,7 +51,7 @@
             </li>
             <li class="d-flex align-items-center justify-content-between fw-semibold">
               <span>الضرائب</span>
-              <span>200 ر.س</span>
+              <span>{{ selectedOrder.details.tax }} ر.س</span>
             </li>
           </ul>
           <hr class="seperator" />
@@ -72,7 +74,7 @@
           <input v-model.trim="keyword" type="text" class="form-control" placeholder="بحث المنتجات او الباركود">
         </div>
         <div v-if="loading" class="row">
-          <div v-for="(order, index) in 4" :key="index" class="col-md-4 col-xl-3 col-2xl-2">
+          <div v-for="(order, index) in 4" :key="index" class="col-6 col-sm-3 col-md-4 col-lg-2 col-xl-3 col-2xl-2">
             <div class="category-card">
               <div class="category-card__icon p-0 mb-3 overflow-hidden">
                 <b-skeleton class="mb-0" animation="wave" width="100%" height="100%"></b-skeleton>
@@ -85,7 +87,7 @@
         
         </div>
         <div v-else-if="filteredOrders && filteredOrders.length" class="row">
-          <div v-for="(order, index) in filteredOrders" :key="index" class="col-md-4 col-xl-3 col-2xl-2">
+          <div v-for="(order, index) in filteredOrders" :key="index" class="col-6 col-sm-3 col-md-4 col-lg-2 col-xl-3 col-2xl-2">
             <div @click="displayOrderDetails(order)" class="category-card cursor-pointer">
               <div class="category-card__icon bg-white">
                 <img :src="order.image" :alt="order.title">
@@ -136,6 +138,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { orders } from '@/services';
  
 export default {
@@ -150,6 +153,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      isSidePanel: 'ui/isSidePanel'
+    }),
     filteredOrders() {
       if(this.keyword) {
         return this.orders.filter(order => {
@@ -172,20 +178,25 @@ export default {
     },
     totalPrice() {
       if(this.netPrice) {
-        return (this.netPrice + 200);
+        return (this.netPrice + this.selectedOrder.details.tax);
       }
 
       return 0;
     }
   },
   methods: {
+    closeSidePanel() {
+      this.$store.commit('ui/UPDATE_SIDEPANEL_STATUS', false);
+    },
     getOrders() {
       setTimeout(() => {
         this.orders = orders;
         this.loading = false;
-      }, 1500);
+      }, 1000);
     },
     backToMainOrdersPage() {
+      this.$store.commit('ui/UPDATE_SIDEPANEL_STATUS');
+
       if(this.selectedOrder.id) {
         this.selectedOrder = {};
         return;
@@ -195,6 +206,7 @@ export default {
     },
     displayOrderDetails(order) {
       this.selectedOrder = order;
+      this.$store.commit('ui/UPDATE_SIDEPANEL_STATUS', true);
     },
     updateAdditionCount(count, additionID) {
       const updatedAdditions = this.selectedOrder.additions.map(add => {

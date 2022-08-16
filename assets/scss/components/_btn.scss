@@ -11,6 +11,11 @@
     border-radius: 1rem;
   }
 
+  &-sm {
+    padding: 0.5rem 0.5rem;
+    gap: 10px;
+  }
+
   &-primary {
     border-color: $primary !important;
     background-color: $primary !important;

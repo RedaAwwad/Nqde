@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as *;
+
+.select-dropdown {
+  position: relative;
+  width: 180px;
+  height: 35px;
+  margin-bottom: 0;
+  border: 1px solid $border;
+  background-color: $white;
+  border-radius: 3px;
+  border-radius: 4px;
+
+  &.lg {
+    height: 40px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 100%;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    z-index: 9;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    background-color: $white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+
+    li {
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $bg;
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    appearance: none;
+    cursor: pointer;
+
+    &:checked + .select-dropdown__menu {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   z-index: 2;
+    //   background-color: transparent;
+    // }
+  }
+
+
+  input:checked::after {
+    background-color: $primary;
+  }
+}

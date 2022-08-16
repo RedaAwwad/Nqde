@@ -4,7 +4,7 @@
     <div class="dashboard__content-grid">
       <div class="container p-4">
         <div v-if="loading" class="row">
-          <div v-for="(order, index) in 4" :key="index" class="col-md-4 col-xl-3">
+          <div v-for="(order, index) in 4" :key="index" class="col-6 col-sm-3 col-md-4 col-lg-2 col-xl-3 col-2xl-2">
             <div class="category-card">
               <div class="category-card__icon p-0 mb-3 overflow-hidden">
                 <b-skeleton class="mb-0" animation="wave" width="100%" height="100%"></b-skeleton>
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div v-else class="row">
-          <div v-for="(category, index) in categories" :key="index" class="col-md-4 col-xl-3 col-2xl-2">
+          <div v-for="(category, index) in categories" :key="index" class="col-6 col-sm-3 col-md-4 col-lg-2 col-xl-3 col-2xl-2">
             <NuxtLink :to="`/orders/${category.slug}`" class="category-card">
               <div class="category-card__icon bg-white">
                 <img :src="category.image" :alt="category.title">
@@ -49,7 +49,7 @@ export default {
       setTimeout(() => {
         this.categories = categories;
         this.loading = false;
-      }, 1500);
+      }, 1000);
     },
   },
   mounted() {

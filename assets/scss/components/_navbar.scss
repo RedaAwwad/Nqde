@@ -1,6 +1,7 @@
 @use '../abstracts/variables' as *;
 
 .navbar {
+  flex-wrap: nowrap;
   background-color: $primary;
   color: $white;
 
@@ -8,6 +9,15 @@
     &__container {
       width: calc(#{ $side_bar_width } - 15px);
       
+      @media screen and (max-width: 767px) {
+        width: auto;
+      }
+
+      @media screen and (max-width: 576px) {
+        img {
+          width: 80px;
+        }
+      }
     }
   }
 
@@ -19,7 +29,17 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: $red;
+    border: 1px solid $red;
+
+    &.has-new {
+      background-color: $red;
+    }
+  }
+
+  .search-icon {
+    @media screen and (max-width: 320px) {
+      display: none;
+    }
   }
 
   .user-dropdown-btn {
@@ -28,6 +48,13 @@
 
     span {
       font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 320px) {
+      img {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 
@@ -38,6 +65,10 @@
       width: 1px;
       height: 50px;
       background-color: $white;
+    }
+
+    @media screen and (max-width: 576px) {
+      gap: 10px;
     }
   }
 }

@@ -29,6 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/vue-datatable.js', mode: 'client' },
     { src: '~/plugins/vue-nice-scroll.js', mode: 'client' },
   ],
 
@@ -36,7 +37,8 @@ export default {
   components: {
     dirs: [
       '~/components',
-      '~/components/dashboard'
+      '~/components/dashboard',
+      '~/components/global'
     ]
   },
 

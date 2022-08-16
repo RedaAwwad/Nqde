@@ -3,7 +3,7 @@
     <TopHeader />
     <div class="dashboard__wrapper">
       <Sidebar />
-      <div class="dashboard__content">
+      <div class="dashboard__content nice-scroll">
         <Nuxt />
       </div>
     </div>

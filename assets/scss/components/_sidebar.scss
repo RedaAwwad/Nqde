@@ -6,6 +6,37 @@
   max-width: 100%;
   background-color: $primary-light;
 
+  @media screen and (max-width: 1200px) {
+    position: fixed;
+    top: $nav_height_lg;
+    right: -100%;
+    z-index: 9;
+    transition: right 300ms ease;
+
+    &.show {
+      right: 0;
+    }
+
+    &__overlay {
+      position: fixed;
+      top: $nav_height_lg;
+      right: 0;
+      width: 100%;
+      height: calc(100vh - #{ $nav_height_lg });
+      z-index: 8;
+      background-color: $overlay;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 300ms ease,
+                  opacity 300ms ease;
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
 
   &__links {
     padding-top: 1rem;
