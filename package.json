@@ -21,6 +21,7 @@
     "vue-nice-scrollbar": "^2.0.1",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
+    "vue2-google-maps": "^0.10.7",
     "webpack": "^4.46.0"
   },
   "devDependencies": {

@@ -29,8 +29,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: "~/plugins/google-maps", ssr: false },
     { src: '~/plugins/vue-datatable.js', mode: 'client' },
     { src: '~/plugins/vue-nice-scroll.js', mode: 'client' },
+    
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -54,7 +56,6 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -63,5 +64,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend: {
+      transpile: [/^vue2-google-maps($|\/)/]
+    }
   }
 }
